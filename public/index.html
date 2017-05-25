@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="novelIdeas">
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <title>Novel Ideas</title>
+    <!-- inject:js -->
+    <script src="/js/app.js"></script>
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- endinject -->
   </head>
-  <body>
-    <h1>Good Afternoon!</h1>
+  <body ng-controller="BooksCtrl as books">
+    <h1>Novel Ideas</h1>
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div uib-carousel active="books.active" interval="books.myInterval" no-wrap="books.noWrapSlides">
+          <div uib-slide ng-repeat="book in books.all.results | limitTo: books.limit | filter: search.q" index="$index">
+            <!-- <img ng-src="{{book.image_url}}" class="carouselImage"> -->
+            <img src="https://images-na.ssl-images-amazon.com/images/I/610z0nF0WrL.jpg" class="carouselImage">
+            <div class="carousel-caption">
+              <h4>{{ book.book_details[0].title }}</h4>
+              <p>by {{ book.book_details[0].author }}</p>
+            </div>
+          </div>
+        </div>
+
+        <p>Title: {{ books.all.results[0].book_details[0].title }}</p>
+        <p>Author: {{ books.all.results[0].book_details[0].author }}</p>
+        <p>Description: {{ books.all.results[0].book_details[0].description }}</p>
+        <p>Chart position: {{ books.all.results[0].rank }}</p>
+        <a href="{{ books.all.results[0].amazon_product_url }}" target="_blank">Amazon Link</a>
+
+        <p>Object: {{ books.all.results[0] }}</p>
+<!--
+        <div ng-repeat="beer in beers.all | limitTo: beers.limit | filter: search.q" class="col-sm-3">
+          <img ng-src="{{ beer.image_url }}" class="img-responsive">
+          <h2>{{ beer.name }}</h2>
+          <h4><strong>ABV: {{ beer.abv }}%</strong></h4>
+          <p><strong>Brewer's tips: </strong>{{ beer.brewers_tips }}</p>
+          <p><strong>Food Pairings:</strong></p>
+          <div ng-repeat="food in beer.food_pairing track by $index">
+            <p class="box">{{ food }}</p>
+          </div>
+        </div> -->
+
+
+      </div>
+    </div>
   </body>
 </html>
