@@ -1,0 +1,11 @@
+{
+  "name": "novel-ideas",
+  "version": "1.0.0",
+  "description": "Novel Ideas App",
+  "main": "index.js",
+  "scripts": {
+    "test": "bower install & gulp deploy"
+  },
+  "author": "MarkS",
+  "license": "ISC"
+}

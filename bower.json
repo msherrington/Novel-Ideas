@@ -1,0 +1,17 @@
+{
+  "name": "novel-ideas",
+  "description": "Novel Ideas App",
+  "main": "index.js",
+  "authors": [
+    "MarkS"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
